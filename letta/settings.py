@@ -33,9 +33,9 @@ class ToolSettings(BaseSettings):
     tool_exec_autoreload_venv: bool = True
 
     # MCP settings
-    mcp_connect_to_server_timeout: float = 30.0
-    mcp_list_tools_timeout: float = 30.0
-    mcp_execute_tool_timeout: float = 60.0
+    mcp_connect_to_server_timeout = 60.0
+    mcp_list_tools_timeout = 120.0
+    mcp_execute_tool_timeout = 300.0
     mcp_read_from_config: bool = False  # if False, will throw if attempting to read/write from file
     mcp_disable_stdio: bool = False
 
@@ -62,8 +62,8 @@ class SummarizerSettings(BaseSettings):
 
     # mode: SummarizationMode = SummarizationMode.STATIC_MESSAGE_BUFFER
     mode: SummarizationMode = SummarizationMode.PARTIAL_EVICT_MESSAGE_BUFFER
-    message_buffer_limit: int = 60
-    message_buffer_min: int = 15
+    message_buffer_limit: int = 600
+    message_buffer_min: int = 400
     enable_summarization: bool = True
     max_summarization_retries: int = 3
 
@@ -83,7 +83,7 @@ class SummarizerSettings(BaseSettings):
 
     # When to warn the model that a summarize command will happen soon
     # The amount of tokens before a system warning about upcoming truncation is sent to Letta
-    memory_warning_threshold: float = 0.75
+    memory_warning_threshold: float = 0.85
 
     # Whether to send the system memory warning message
     send_memory_warning_message: bool = False
@@ -100,7 +100,7 @@ class SummarizerSettings(BaseSettings):
 class ModelSettings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
-    global_max_context_window_limit: int = 32000
+    global_max_context_window_limit: int = 1048576
 
     inner_thoughts_kwarg: str | None = Field(default=INNER_THOUGHTS_KWARG, description="Key used for passing in inner thoughts.")
 

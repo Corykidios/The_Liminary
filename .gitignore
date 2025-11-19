@@ -1,17 +1,42 @@
-# --- Secrets ---
+# ==========================
+# 🛡️ SECRETS & KEYS (NEVER COMMIT)
+# ==========================
 .env
-.env.*
-*.db
-*.sqlite
-*.sqlite3
+.env.local
+.env.production
+.env.test
 
-# --- Configs with Passwords ---
+# ==========================
+# ⚙️ LOCAL CONFIGURATION
+# ==========================
+# We ignore the live settings because they define YOUR machine.
+# (You can commit 'settings.toml.example' if you want to share the structure later)
 settings.toml
 letta/config.json
 
-# --- Runtimes & Caches ---
+# ==========================
+# 🧠 DATABASES & MEMORY
+# ==========================
+# Even though Adyton is in C:\cc\data, we ignore these just in case
+# Letta creates a local fallback file inside the repo.
+*.db
+*.sqlite
+*.sqlite3
+*.pstat
+*.prof
+
+# ==========================
+# 🐍 PYTHON RUNTIMES & CACHE
+# ==========================
 .venv/
 venv/
+env/
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+
+# ==========================
+# 🖥️ OS JUNK
+# ==========================
 .DS_Store
+Thumbs.db
