@@ -91,7 +91,7 @@ sqlite = ["aiosqlite>=0.21.0", "sqlite-vec>=0.1.7a2"]
 
 # ====== Server ======
 experimental = [
-    "uvloop>=0.21.0",
+    "uvloop>=0.21.0; sys_platform != 'win32'",  # Only install on non-Windows systems
     "granian[uvloop,reload]>=2.3.2",
 ]
 server = [

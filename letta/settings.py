@@ -33,12 +33,12 @@ class ToolSettings(BaseSettings):
     tool_exec_autoreload_venv: bool = True
 
     # MCP settings
-    mcp_connect_to_server_timeout = 60.0
-    mcp_list_tools_timeout = 120.0
-    mcp_execute_tool_timeout = 300.0
+    mcp_connect_to_server_timeout: float = 60.0
+    mcp_list_tools_timeout: float = 120.0
+    mcp_execute_tool_timeout: float = 360.0
     mcp_read_from_config: bool = False  # if False, will throw if attempting to read/write from file
     mcp_disable_stdio: bool = False
-
+    
     @property
     def modal_sandbox_enabled(self) -> bool:
         """Check if Modal credentials are configured."""

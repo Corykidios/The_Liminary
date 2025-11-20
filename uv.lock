@@ -2509,7 +2509,7 @@ dev = [
 ]
 experimental = [
     { name = "granian", extra = ["reload", "uvloop"] },
-    { name = "uvloop" },
+    { name = "uvloop", marker = "sys_platform != 'win32'" },
 ]
 external-tools = [
     { name = "docker" },
@@ -2658,7 +2658,7 @@ requires-dist = [
     { name = "typer", specifier = ">=0.15.2" },
     { name = "uvicorn", marker = "extra == 'desktop'", specifier = "==0.29.0" },
     { name = "uvicorn", marker = "extra == 'server'", specifier = "==0.29.0" },
-    { name = "uvloop", marker = "extra == 'experimental'", specifier = ">=0.21.0" },
+    { name = "uvloop", marker = "sys_platform != 'win32' and extra == 'experimental'", specifier = ">=0.21.0" },
     { name = "websockets", marker = "extra == 'desktop'" },
     { name = "websockets", marker = "extra == 'server'" },
     { name = "wikipedia", marker = "extra == 'desktop'", specifier = ">=1.4.0" },
